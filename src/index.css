@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Cabinet Grotesk', 'Plus Jakarta Sans', sans-serif;
+    --font-serif: 'Cinzel', serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0b0914;
+    color: #f8fafc;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0b16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e2646;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #473a6b;
+}
+
+/* Nollywood Glow and Gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF6D3 0%, #FFDF00 35%, #F59E0B 70%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-btn {
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #D97706 100%);
+  color: #0f0a02;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+  transition: all 0.2s ease;
+}
+
+.gold-gradient-btn:hover {
+  background: linear-gradient(135deg, #FDE68A 0%, #FBBF24 50%, #F59E0B 100%);
+  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.5);
+  transform: translateY(-1px);
+}
+
+.purple-gradient-btn {
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
+  transition: all 0.2s ease;
+}
+
+.purple-gradient-btn:hover {
+  background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 50%, #7C3AED 100%);
+  box-shadow: 0 6px 25px rgba(124, 58, 237, 0.5);
+  transform: translateY(-1px);
+}
+
+.drama-card {
+  background: rgba(22, 18, 35, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 1rem;
+}
+
+.drama-card-hover {
+  transition: all 0.25s ease;
+}
+
+.drama-card-hover:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.25);
+}
+
+/* Ambient background lights */
+.ambient-glow-purple {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, rgba(124, 58, 237, 0) 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.ambient-glow-gold {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0) 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* ==============================================================================
+   PRINT MEDIA STYLES - PRODUCTION EXPORT PACK PRINT & SAVE AS PDF
+   ============================================================================== */
+@media print {
+  /* Hide all app chrome, sidebars, top headers, navigation, buttons and modals */
+  nav,
+  aside,
+  header,
+  footer,
+  button,
+  .no-print,
+  .print-hidden,
+  .ambient-glow-purple,
+  .ambient-glow-gold {
+    display: none !important;
+  }
+
+  /* Reset document root to clean, high-contrast white paper setup */
+  html, body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    overflow: visible !important;
+    font-size: 10.5pt !important;
+    line-height: 1.5 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Unset dark card styling when printing */
+  .drama-card {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 1.25rem !important;
+    padding: 1.25rem !important;
+  }
+
+  /* Target print container */
+  #printable-production-pack {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #111827 !important;
+    background: #ffffff !important;
+  }
+
+  #printable-production-pack * {
+    color: #111827 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Crisp borders on print */
+  #printable-production-pack .border {
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Page breaks */
+  .print-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Text and code wrapping */
+  pre, code, p, span, h1, h2, h3, h4, h5, div {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+}

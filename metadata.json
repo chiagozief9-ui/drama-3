@@ -1,0 +1,6 @@
+{
+  "name": "AI Drama Creator",
+  "description": "Create African AI Drama Videos With Characters That Talk. Generate story ideas, characters, scenes, image prompts, and video prompts for cinematic AI drama videos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
